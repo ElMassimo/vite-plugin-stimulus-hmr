@@ -1,7 +1,7 @@
 {
   "name": "vite-plugin-stimulus-hmr",
   "description": "HMR for Stimulus controllers in Vite.js, tweak your JS without refreshing the page.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
@@ -9,10 +9,20 @@
   "author": "Máximo Mussini <maximomussini@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ElMasssimo/vite-plugin-stimulus-hmr"
+    "url": "https://github.com/ElMassimo/vite-plugin-stimulus-hmr"
   },
-  "homepage": "https://github.com/ElMasssimo/vite-plugin-stimulus-hmr",
-  "bugs": "https://github.com/ElMasssimo/vite-plugin-stimulus-hmr/issues",
+  "homepage": "https://github.com/ElMassimo/vite-plugin-stimulus-hmr",
+  "bugs": "https://github.com/ElMassimo/vite-plugin-stimulus-hmr/issues",
+  "keywords": [
+    "plugin",
+    "hmr",
+    "rails",
+    "ruby",
+    "stimulus",
+    "vite",
+    "vite-plugin",
+    "vitejs"
+  ],
   "files": [
     "dist",
     "default.vite.json"
@@ -30,7 +40,7 @@
   },
   "dependencies": {
     "debug": "^4.3.1",
-    "stimulus-vite-helpers": "^1.0.1"
+    "stimulus-vite-helpers": "^1.0"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.4.3",
