@@ -1,1 +1,1 @@
-import './controllers/index.ts'
+import './controllers'
