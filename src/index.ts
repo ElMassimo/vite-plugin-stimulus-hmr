@@ -7,21 +7,20 @@ export * from './types'
 
 const debug = createDebugger('stimulus:hmr')
 
+// NOTE: Compatibility with Vite 2.6 and 2.7.
+function isSSR(options: undefined | boolean | { ssr: boolean | undefined }) {
+  return typeof options === 'object' ? options.ssr : options
+}
+
 // Public: Vite Plugin to provide HMR for Stimulus controllers, allowing to
 // re-register them without reloading the page.
 export default function StimulusHMRPlugin({ appGlobal = '$$StimulusApp$$' }: Options = {}): Plugin {
-  let shouldSkip = false
-
   return {
     name: 'stimulus:hmr',
+    apply: 'serve',
 
-    configResolved(config) {
-      shouldSkip = config.command === 'build' || config.isProduction
-    },
-
-    transform(code, id, ssr) {
-      if (shouldSkip || ssr) return
-      if (id.includes('node_modules')) return
+    transform(code, id, options) {
+      if (isSSR(options) || id.includes('node_modules')) return
 
       // Auto-detect Stimulus application and make accessible during HMR.
       const appRegex = /\n[^\n]*?\s(\w+)(?:\s*=\s*Application\.start\(\))/
