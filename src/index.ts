@@ -9,12 +9,12 @@ const debug = createDebugger('stimulus:hmr')
 
 // Public: Vite Plugin to provide HMR for Stimulus controllers, allowing to
 // re-register them without reloading the page.
-export default function StimulusHMRPlugin({ appGlobal = '$$StimulusApp$$' }: Options = {}): Plugin {
+export default function StimulusHMRPlugin ({ appGlobal = '$$StimulusApp$$' }: Options = {}): Plugin {
   return {
     name: 'stimulus:hmr',
     apply: 'serve',
 
-    transform(code, id, options) {
+    transform (code, id, options) {
       if ((options?.ssr && !process.env.VITEST) || id.includes('node_modules')) return
 
       // Auto-detect Stimulus application and make accessible during HMR.

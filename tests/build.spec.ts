@@ -14,7 +14,6 @@ function compiledFile (fileWithExt: string) {
 }
 
 async function buildApp (options?: InlineConfig) {
-  const root = resolve(__dirname, '../example')
   await build({ root: exampleRoot, logLevel: 'warn', ...options })
 }
 

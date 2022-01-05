@@ -64,5 +64,10 @@
     "typescript": "^4.5",
     "vite": "^2.7.0",
     "vitest": "^0.0.132"
+  },
+  "eslintConfig": {
+    "extends": [
+      "@mussi/eslint-config"
+    ]
   }
 }
