@@ -1,10 +1,22 @@
 {
   "name": "vite-plugin-stimulus-hmr",
   "description": "HMR for Stimulus controllers in Vite.js, tweak your JS without refreshing the page.",
-  "version": "1.0.2",
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
+  "version": "3.0.0",
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
   "license": "MIT",
   "author": "Máximo Mussini <maximomussini@gmail.com>",
   "repository": {
@@ -23,37 +35,34 @@
     "vite-plugin",
     "vitejs"
   ],
-  "files": [
-    "dist",
-    "default.vite.json"
-  ],
   "scripts": {
     "lint": "eslint .",
-    "test": "jest",
+    "test": "vitest --config example/vite.config.ts",
     "dev": "npm run build -- --watch",
     "example:dev": "npm -C example run dev",
     "example:build": "npm -C example run build",
-    "build": "tsup src/index.ts --dts --format cjs,esm",
-    "clean": "rm -rf ./dist",
-    "release": "nr clean && nr build && npm publish",
+    "build": "tsup src/index.ts --dts --format cjs,esm --clean",
+    "release": "nr build && npm publish",
     "prepublishOnly": "npm run build",
     "postpublish": "PACKAGE_VERSION=$(cat package.json | grep \\\"version\\\" | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]') && git tag v$PACKAGE_VERSION && git push --tags"
   },
   "dependencies": {
-    "debug": "^4.3.1",
-    "stimulus-vite-helpers": "^1.0.4"
+    "debug": "^4.3",
+    "stimulus-vite-helpers": "^3.0.0"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.4.3",
-    "@types/debug": "^4.1.5",
-    "@types/minimatch": "^3.0.3",
-    "@types/node": "^14.14.20",
+    "@mussi/eslint-config": "^0.5",
+    "@types/debug": "^4.1",
+    "@types/node": "^14.14",
     "@typescript-eslint/eslint-plugin": "^4.12.0",
     "eslint": "^7.17.0",
-    "rollup": "^2.36.1",
+    "fast-glob": "^3.2.7",
+    "happy-dom": "^2.25.1",
+    "rollup": "^2.59",
     "standard-version": "^9.1.0",
-    "tsup": "^3.11.0",
-    "typescript": "^4.1.3",
-    "vite": "^2.6.0"
+    "tsup": "^5",
+    "typescript": "^4.5",
+    "vite": "^2.7.0",
+    "vitest": "^0.0.132"
   }
 }

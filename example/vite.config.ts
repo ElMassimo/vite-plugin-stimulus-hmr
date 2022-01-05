@@ -1,11 +1,8 @@
-import path from 'path'
-import { UserConfig } from 'vite'
+import { defineConfig } from 'vite'
 import StimulusHMR from 'vite-plugin-stimulus-hmr'
 
-const config: UserConfig = {
+export default defineConfig({
   plugins: [
     StimulusHMR(),
   ],
-}
-
-export default config
+})

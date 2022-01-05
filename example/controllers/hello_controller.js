@@ -1,4 +1,4 @@
-import { Controller } from "stimulus"
+import { Controller } from '@hotwired/stimulus'
 
 export default class extends Controller {
   connect() {
@@ -6,7 +6,7 @@ export default class extends Controller {
     this.originalText = this.element.textContent
     this.element.textContent = 'Stimulus with Vite.js'
   }
-  
+
   disconnect() {
     this.element.textContent = this.originalText
   }
