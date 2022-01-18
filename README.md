@@ -79,4 +79,4 @@ Just as when you use Turbolinks, it's important that your controllers are [idemp
 
 ## License
 
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+This library is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
