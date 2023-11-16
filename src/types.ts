@@ -1,4 +1,4 @@
-export type Options = {
+export interface Options {
   /**
    * Name of a global `window` variable where the Stimulus app is defined.
    *

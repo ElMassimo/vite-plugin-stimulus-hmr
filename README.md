@@ -54,13 +54,13 @@ Add it to your plugins in `vite.config.js`
 
 ```ts
 // vite.config.js
-import StimulusHMR from 'vite-plugin-stimulus-hmr' 
+import StimulusHMR from 'vite-plugin-stimulus-hmr'
 
 export default {
   plugins: [
     StimulusHMR(),
   ],
-};
+}
 ```
 
 You should now enjoy HMR for your Stimulus controllers! 🚀

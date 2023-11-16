@@ -3,6 +3,7 @@ import { identifierForGlobKey } from 'stimulus-vite-helpers'
 import createDebugger from 'debug'
 
 import type { Options } from './types'
+
 export * from './types'
 
 const debug = createDebugger('stimulus:hmr')

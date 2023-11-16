@@ -1,29 +1,15 @@
 {
   "name": "vite-plugin-stimulus-hmr",
-  "description": "HMR for Stimulus controllers in Vite.js, tweak your JS without refreshing the page.",
-  "version": "3.0.0",
-  "files": [
-    "dist"
-  ],
-  "sideEffects": false,
   "type": "module",
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "exports": {
-    ".": {
-      "require": "./dist/index.cjs",
-      "import": "./dist/index.js",
-      "types": "./dist/index.d.ts"
-    }
-  },
-  "license": "MIT",
+  "version": "3.0.0",
+  "description": "HMR for Stimulus controllers in Vite.js, tweak your JS without refreshing the page.",
   "author": "Máximo Mussini <maximomussini@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/ElMassimo/vite-plugin-stimulus-hmr",
   "repository": {
     "type": "git",
     "url": "https://github.com/ElMassimo/vite-plugin-stimulus-hmr"
   },
-  "homepage": "https://github.com/ElMassimo/vite-plugin-stimulus-hmr",
   "bugs": "https://github.com/ElMassimo/vite-plugin-stimulus-hmr/issues",
   "keywords": [
     "plugin",
@@ -34,6 +20,20 @@
     "vite",
     "vite-plugin",
     "vitejs"
+  ],
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
   ],
   "scripts": {
     "lint": "eslint .",
@@ -51,11 +51,12 @@
     "stimulus-vite-helpers": "^3.0.1"
   },
   "devDependencies": {
-    "@mussi/eslint-config": "^0.5.1",
+    "@antfu/eslint-config": "^1.1.4",
     "@types/debug": "^4.1.12",
     "@types/node": "^18.18.9",
-    "@typescript-eslint/eslint-plugin": "^4.33.0",
-    "eslint": "^7.32.0",
+    "@typescript-eslint/eslint-plugin": "^6.10.0",
+    "eslint": "^8.53.0",
+    "eslint-define-config": "^1.24.1",
     "fast-glob": "^3.3.2",
     "happy-dom": "^2.55.0",
     "rollup": "^4.4.1",
@@ -64,10 +65,5 @@
     "typescript": "^4.9.5",
     "vite": "^5.0.0",
     "vitest": "^0.34.6"
-  },
-  "eslintConfig": {
-    "extends": [
-      "@mussi/eslint-config"
-    ]
   }
 }

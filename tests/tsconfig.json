@@ -1,15 +1,15 @@
 {
-  "include": ["."],
-  "exclude": ["**/dist/**"],
   "compilerOptions": {
     "target": "esnext",
-    "module": "esnext",
-    "outDir": "dist",
-    "allowJs": true,
-    "esModuleInterop": true,
-    "moduleResolution": "node",
-    "baseUrl": ".",
     "jsx": "preserve",
-    "types": ["vite/client", "node"]
-  }
+    "baseUrl": ".",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "types": ["vite/client", "node"],
+    "allowJs": true,
+    "outDir": "dist",
+    "esModuleInterop": true
+  },
+  "include": ["."],
+  "exclude": ["**/dist/**"]
 }
