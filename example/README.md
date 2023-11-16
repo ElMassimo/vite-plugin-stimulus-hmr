@@ -14,7 +14,7 @@
 <br>
 
 This is an example using Stimulus and Vite.js, which demonstrates the use of
-`import.meta.globEager` and [`stimulus-vite-helpers`](https://github.com/ElMassimo/stimulus-vite-helpers) to register controllers.
+`import.meta.glob` and [`stimulus-vite-helpers`](https://github.com/ElMassimo/stimulus-vite-helpers) to register controllers.
 
 ## Play 🎸
 

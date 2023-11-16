@@ -15,7 +15,7 @@
 
 [vite_rails]: https://github.com/ElMassimo/vite_ruby/tree/main/vite_rails
 [vite_ruby]: https://github.com/ElMassimo/vite_ruby/tree/main/vite_ruby
-[globEager]: https://vitejs.dev/guide/features.html#glob-import
+[glob]: https://vitejs.dev/guide/features.html#glob-import
 [jumpstart]: https://github.com/ElMassimo/jumpstart-vite
 [stimulus handbook]: https://stimulus.hotwire.dev/handbook/installing
 [stimulus]: https://github.com/hotwired/stimulus
