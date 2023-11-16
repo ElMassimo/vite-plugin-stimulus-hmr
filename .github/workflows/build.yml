@@ -4,22 +4,29 @@ on: [push, pull_request]
 
 jobs:
   build:
-    name: Test
-    runs-on: ubuntu-latest
+    name: Lint & Test
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: [18.x]
+
+    runs-on: ${{ matrix.os }}
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+
+      - uses: pnpm/action-setup@v2.2.2
+        with:
+          version: 8.8.0
 
       - name: Use Node.js ${{ matrix.node }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
-          node-version: 14.x
+          node-version: ${{ matrix.node }}
+          cache: pnpm
 
-      - uses: pnpm/action-setup@v1.2.1
-        with:
-          version: 5.13.6
-          run_install: |
-            - recursive: false
+      - run: pnpm install --frozen-lockfile
 
       - name: Build
         run: pnpm build
