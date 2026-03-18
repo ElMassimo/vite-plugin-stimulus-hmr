@@ -24,25 +24,23 @@
   "sideEffects": false,
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
     }
   },
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "lint": "eslint .",
+    "lint": "vp lint",
     "test": "vitest --config example/vite.config.ts",
-    "dev": "npm run build -- --watch",
+    "dev": "vp pack src/index.ts --dts --format esm --watch",
     "example:dev": "npm -C example run dev",
     "example:build": "npm -C example run build",
-    "build": "tsup src/index.ts --dts --format cjs,esm --clean",
-    "release": "nr build && npm publish",
+    "build": "vp pack src/index.ts --dts --format esm",
+    "release": "vp pack src/index.ts --dts --format esm && npm publish",
     "prepublishOnly": "npm run build",
     "postpublish": "PACKAGE_VERSION=$(cat package.json | grep \\\"version\\\" | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]') && git tag v$PACKAGE_VERSION && git push --tags"
   },
@@ -51,19 +49,16 @@
     "stimulus-vite-helpers": "^3.0.1"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^1.1.4",
     "@types/debug": "^4.1.12",
-    "@types/node": "^18.18.9",
-    "@typescript-eslint/eslint-plugin": "^6.10.0",
-    "eslint": "^8.53.0",
-    "eslint-define-config": "^1.24.1",
+    "@types/node": "^22",
     "fast-glob": "^3.3.2",
-    "happy-dom": "^2.55.0",
-    "rollup": "^4.4.1",
-    "standard-version": "^9.5.0",
-    "tsup": "^7.2.0",
-    "typescript": "^4.9.5",
-    "vite": "^5.0.0",
-    "vitest": "^0.34.6"
+    "happy-dom": "^17",
+    "typescript": "^5",
+    "vite": "^8",
+    "vitest": "^3"
+  },
+  "packageManager": "pnpm@10.32.1",
+  "pnpm": {
+    "onlyBuiltDependencies": ["esbuild"]
   }
 }

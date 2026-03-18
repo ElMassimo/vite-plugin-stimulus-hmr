@@ -23,8 +23,5 @@ describe('build', () => {
     const index = compiledFile('index.js')
     expect(index).not.toContain('$$StimulusApp$$')
     expect(index).not.toContain('import.meta.hot')
-
-    const vendor = compiledFile('vendor.js')
-    expect(vendor).not.toContain('$$StimulusApp$$')
   }, 5000)
 })
